@@ -15,24 +15,21 @@ function getVehData(plate, callback)
                 break
             end
         end
+        local info = {
+            plate = plate
+        }
         if foundIdentifier ~= nil then
             MySQL.Async.fetchAll("SELECT * FROM `users` WHERE `identifier` = @identifier", {['@identifier'] = foundIdentifier},
             function(result)
-                local ownerName = result[1].firstname .. " " .. result[1].lastname
-
-                local info = {
-                    plate = plate,
-                    owner = ownerName
-                }
-                callback(info)
-            end
-          )
-        else -- if identifier is nil then...
-          local info = {
-            plate = plate
-          }
-          callback(info)
+                    if result[1] ~= nil then
+                    --local ownerName = result[1].firstname .. " " .. result[1].lastname
+                    --table.insert(info, owner = ownerName)
+                    tab["owner"] = result[1].firstname .. " " .. result[1].lastname
+                    end
+                end
+            )
         end
+        callback(info)
     end)
   end
 
