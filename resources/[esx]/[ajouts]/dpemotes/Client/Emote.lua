@@ -84,25 +84,19 @@ end)
 -----------------------------------------------------------------------------------------------------
 
 function EmoteCancel()
-
-  if ChosenDict == "MaleScenario" and IsInAnimation then
-    ClearPedTasksImmediately(PlayerPedId())
-    IsInAnimation = false
-    DebugPrint("Forced scenario exit")
-  elseif ChosenDict == "Scenario" and IsInAnimation then
-    ClearPedTasksImmediately(PlayerPedId())
-    IsInAnimation = false
-    DebugPrint("Forced scenario exit")
-  end
-
   PtfxNotif = false
   PtfxPrompt = false
 
   if IsInAnimation then
-    PtfxStop()
-    ClearPedTasks(GetPlayerPed(-1))
-    DestroyAllProps()
     IsInAnimation = false
+    if ChosenDict == "MaleScenario" or ChosenDict == "Scenario" then
+      ClearPedTasksImmediately(PlayerPedId())
+      DebugPrint("Forced scenario exit")
+    else
+      PtfxStop()
+      ClearPedTasks(PlayerPedId())
+      DestroyAllProps()
+    end
   end
 end
 
