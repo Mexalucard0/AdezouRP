@@ -24,7 +24,7 @@ function getVehData(plate, callback)
                     if result[1] ~= nil then
                     --local ownerName = result[1].firstname .. " " .. result[1].lastname
                     --table.insert(info, owner = ownerName)
-                    tab["owner"] = result[1].firstname .. " " .. result[1].lastname
+                    info["owner"] = result[1].firstname .. " " .. result[1].lastname
                     end
                 end
             )

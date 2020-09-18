@@ -73,7 +73,6 @@ Locales['fr'] = {
   ['not_enough_gas_can']        = 'Vous n\'avez ~r~pas assez~s~ de bouteille de gaz',
   ['assembling_blowtorch']      = 'Assemblage de ~b~Chalumeaux~s~...',
   ['not_enough_repair_tools']   = 'Vous n\'avez ~r~pas assez~s~ d\'outils réparation',
-  ['assembling_blowtorch']      = 'Assemblage de ~b~Kit réparation~s~...',
   ['not_enough_body_tools']     = 'Vous n\'avez ~r~pas assez~s~ d\'outils carosserie',
   ['assembling_body_kit']       = 'Assemblage de ~b~kit carosserie~s~...',
   ['assembling_repair_kit']       = 'Assemblage de ~b~kit réparation~s~...',
