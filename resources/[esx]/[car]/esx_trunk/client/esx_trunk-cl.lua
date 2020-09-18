@@ -49,14 +49,44 @@ AddEventHandler('onResourceStart', function()
 	lastChecked = GetGameTimer()
 end)
 
-RegisterNetEvent('esx:setJob')
-AddEventHandler('esx:setJob', function(job)
+--RegisterNetEvent('esx:setJob')
+--AddEventHandler('esx:setJob', function(job)
+--  PlayerData.job = job
+--end)
+RegisterNetEvent("esx:setJob")
+AddEventHandler("esx:setJob", function(job)
+  while PlayerData == nil do
+    Citizen.Wait(1000)
+    print("PlayerData is nill, awaiting")
+  end
+
+  print("Job: ", job)
+  print("PlayerData: ", PlayerData)
+
   PlayerData.job = job
+  onDuty = false
+  myPlate = {} -- loosing vehicle caution in case player changes job.
+  spawner = 0
 end)
 
-RegisterNetEvent('esx:setJob2')
-AddEventHandler('esx:setJob2', function(job2)
+--RegisterNetEvent('esx:setJob2')
+--AddEventHandler('esx:setJob2', function(job2)
+--  PlayerData.job2 = job2
+--end)
+RegisterNetEvent("esx:setJob2")
+AddEventHandler("esx:setJob2", function(job2)
+  while PlayerData == nil do
+    Citizen.Wait(1000)
+    print("PlayerData is nill, awaiting")
+  end
+
+  print("Job2: ", job2)
+  print("PlayerData: ", PlayerData)
+
   PlayerData.job2 = job2
+  onDuty = false
+  myPlate = {} -- loosing vehicle caution in case player changes job.
+  spawner = 0
 end)
 
 RegisterNetEvent('esx_trunk_inventory:setOwnedVehicule')
